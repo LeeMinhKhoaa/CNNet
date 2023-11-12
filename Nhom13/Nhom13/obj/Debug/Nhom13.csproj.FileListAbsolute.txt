@@ -1,0 +1,10 @@
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\bin\Debug\Nhom13.exe.config
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\bin\Debug\Nhom13.exe
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\bin\Debug\Nhom13.pdb
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.AssemblyReference.cache
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.Form1.resources
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.Properties.Resources.resources
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.GenerateResource.cache
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.CoreCompileInputs.cache
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.exe
+D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.pdb
