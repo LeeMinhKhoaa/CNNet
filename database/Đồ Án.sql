@@ -1,4 +1,4 @@
-﻿
+﻿CREATE DATABASE NHATHUOC
 USE NHATHUOC
 -- Tạo bảng HoaDon
 CREATE TABLE HOADON (
@@ -64,14 +64,12 @@ CREATE TABLE THUOC (
 	MaLoaiThuoc varchar(10),
     DVT VARCHAR(20),
     GiaBan DECIMAL(10,2),
-	SoLuong int,
     HanSuDung DATE,
     MoTa NVARCHAR(100),
     GiaNhap DECIMAL(10,2),
     HinhAnh VARCHAR(100),
     TacDungPhu NVARCHAR(100),
     XuatXu NVARCHAR(50),
-
 );
 
 
