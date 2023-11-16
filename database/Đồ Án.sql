@@ -1,4 +1,4 @@
-﻿CREATE DATABASE NHATHUOC
+﻿
 USE NHATHUOC
 -- Tạo bảng HoaDon
 CREATE TABLE HOADON (
@@ -11,7 +11,6 @@ CREATE TABLE HOADON (
 	MaNV varchar(10)
 
 );
-
 
 
 -- Tạo bảng KhachHang
@@ -61,9 +60,11 @@ CREATE TABLE CHITIETPHIEUNHAP (
 CREATE TABLE THUOC (
     MaThuoc VARCHAR(10) PRIMARY KEY,
 	MaNhomThuoc VARCHAR(10),
+	TenThuoc NVARCHAR(50),
 	MaLoaiThuoc varchar(10),
     DVT VARCHAR(20),
     GiaBan DECIMAL(10,2),
+	SoLuong int,
     HanSuDung DATE,
     MoTa NVARCHAR(100),
     GiaNhap DECIMAL(10,2),
