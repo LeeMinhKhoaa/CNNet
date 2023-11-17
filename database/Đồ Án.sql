@@ -12,7 +12,7 @@ CREATE TABLE HOADON (
 
 );
 
-
+1
 -- Tạo bảng KhachHang
 CREATE TABLE KHACHHANG (
     MaKH varchar(10) PRIMARY KEY,
@@ -62,6 +62,7 @@ CREATE TABLE THUOC (
 	MaNhomThuoc VARCHAR(10),
 	TenThuoc NVARCHAR(50),
 	MaLoaiThuoc varchar(10),
+	SoLuong int,
     DVT VARCHAR(20),
     GiaBan DECIMAL(10,2),
     HanSuDung DATE,
@@ -92,12 +93,14 @@ CREATE TABLE CHITIETHD(
 MaHD VARCHAR(10) ,
 MaThuoc VARCHAR(10),
 SoLuong INT,
-DonGia DECIMAL(10,2)
+DonGia DECIMAL(10,2),
+MaLo varchar(10),
 primary key(MaHD,MaThuoc)
 )
 create table LOTHUOC(
 	MaLo varchar(10) primary key,
 	SoLo int,
+	MaThuoc varchar(10),
 	SoLuongTon int,
 	NgayHetHan datetime,
 )
@@ -110,14 +113,18 @@ ADD FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH);
 ALTER TABLE HoaDon
 ADD FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV);
 
- 
+-- Liên kết khóa ngoại từ bảng LoThuoc đến bảng Thuoc
+ALTER TABLE LoThuoc
+ADD FOREIGN KEY (MaThuoc) REFERENCES Thuoc(MaThuoc); 
 
 
 -- Liên kết khóa ngoại từ bảng PhieuNhap đến bảng NhanVien
 ALTER TABLE PhieuNhap
 ADD FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV);
 
-
+-- Liên kết khóa ngoại từ bảng ChiTietHD đến bảng LoThuoc
+ALTER TABLE ChiTietHD
+ADD FOREIGN KEY (MaLo) REFERENCES LoThuoc(MaLo);
 
 -- Liên kết khóa ngoại từ bảng ChiTietPhieuNhap đến bảng PhieuNhap
 ALTER TABLE ChiTietPhieuNhap
@@ -153,3 +160,60 @@ add MaNCC varchar(10)
 
 alter table Thuoc 
 add foreign key (MaNCC) references NhaCungCap(MaNCC)
+
+--------------------------Trigger-----------------------------
+
+-- Update số lượng tồn khi bán
+CREATE TRIGGER trg_CHITIETHD_UpdateSLTon
+ON CHITIETHD
+AFTER INSERT
+AS
+BEGIN 
+	DECLARE @MaThuoc varchar(10)
+	DECLARE @SoLuongMua int
+	SELECT @MaThuoc = MaThuoc, @SoLuongMua = SoLuong FROM inserted
+
+	-- Trừ số lượng tồn của thuốc khi bán 
+	Update THUOC
+	SET SoLuong = SoLuong - @SoLuongMua
+	WHERE MaThuoc = @MaThuoc
+END
+GO
+
+-- Update số lượng tồn khi nhập 
+CREATE TRIGGER trg_CHITIETPHIEUNHAP_UpdateSLTon
+ON CHITIETPHIEUNHAP
+AFTER INSERT
+AS 
+BEGIN
+	DECLARE @MaThuoc varchar(10)
+	DECLARE @SoLuongNhap int
+	SELECT @MaThuoc = MaThuoc, @SoLuongNhap = SoLuong FROM INSERTED
+
+	--Them so luong khi nhap
+	UPDATE THUOC
+	SET SoLuong = SoLuong + @SoLuongNhap
+	WHERE MaThuoc = @MaThuoc
+
+
+END
+GO
+
+-- Tru so luong ton khi het han
+CREATE TRIGGER trg_HetHanThuoc
+ON LOTHUOC
+FOR DELETE
+AS
+BEGIN
+
+	DECLARE @SoLuongTon INT
+	DECLARE @MaThuoc varchar(10)
+	SELECT @SoLuongTon = SoLuongTon, @MaThuoc = MaThuoc FROM DELETED
+
+	-- Trừ số lượng tồn hết hạn vào số lượng thuốc
+	UPDATE THUOC
+	SET SoLuong = SoLuong - @SoLuongTon
+	WHERE MaThuoc = @MaThuoc;
+
+END
+
