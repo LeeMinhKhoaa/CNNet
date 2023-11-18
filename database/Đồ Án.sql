@@ -94,7 +94,6 @@ MaHD VARCHAR(10) ,
 MaThuoc VARCHAR(10),
 SoLuong INT,
 DonGia DECIMAL(10,2),
-MaLo varchar(10),
 primary key(MaHD,MaThuoc)
 )
 create table LOTHUOC(
