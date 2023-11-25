@@ -17,7 +17,7 @@ namespace Nhom13
             get { return connect; }
             set { connect = value; }
         }
-        string strConnect = @"Data Source=QKHAI\SQLEXPRESS;Initial Catalog=QLHANGHOA;Integrated Security=True";
+        string strConnect = @"Data Source=QKHAI\SQLEXPRESS;Initial Catalog=NHATHUOC;Integrated Security=True";
         public DBConnect()
         {
             connect = new SqlConnection(strConnect);
@@ -66,5 +66,6 @@ namespace Nhom13
             int kq = da_lop.Update(dt);
             return kq;
         }
+
     }
 }

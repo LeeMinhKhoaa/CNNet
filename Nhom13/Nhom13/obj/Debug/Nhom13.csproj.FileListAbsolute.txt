@@ -8,3 +8,13 @@ D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.GenerateRes
 D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.CoreCompileInputs.cache
 D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.exe
 D:\HK5\CongNghe .NET\Đồ án\Nhom13\Nhom13\obj\Debug\Nhom13.pdb
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\bin\Debug\Nhom13.exe.config
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\bin\Debug\Nhom13.exe
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\bin\Debug\Nhom13.pdb
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.AssemblyReference.cache
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.frm_Home.resources
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.Properties.Resources.resources
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.GenerateResource.cache
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.CoreCompileInputs.cache
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.exe
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.pdb
