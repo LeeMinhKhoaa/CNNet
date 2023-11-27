@@ -17,7 +17,8 @@ namespace Nhom13
             get { return connect; }
             set { connect = value; }
         }
-        string strConnect = @"Data Source=QKHAI\SQLEXPRESS;Initial Catalog=NHATHUOC;Integrated Security=True";
+
+        string strConnect = Properties.Settings.Default.strConn;
         public DBConnect()
         {
             connect = new SqlConnection(strConnect);

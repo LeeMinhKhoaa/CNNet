@@ -62,6 +62,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmKiemKe.resx">
+      <DependentUpon>frmKiemKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Home.resx">
       <DependentUpon>frm_Home.cs</DependentUpon>
     </EmbeddedResource>

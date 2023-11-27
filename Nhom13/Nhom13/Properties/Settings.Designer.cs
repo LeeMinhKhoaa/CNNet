@@ -22,5 +22,17 @@ namespace Nhom13.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=QKHAI\\SQLEXPRESS;Initial Catalog=NHATHUOC;Integrated Security=True")]
+        public string strConn {
+            get {
+                return ((string)(this["strConn"]));
+            }
+            set {
+                this["strConn"] = value;
+            }
+        }
     }
 }

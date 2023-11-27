@@ -18,3 +18,4 @@ C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.cs
 C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.CoreCompileInputs.cache
 C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.exe
 C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.pdb
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.frmKiemKe.resources
