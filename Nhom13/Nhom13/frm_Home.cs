@@ -101,31 +101,41 @@ namespace Nhom13
         }
         private void cboTenThuocKK_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtChenhLech.Clear();
             string maThuoc = cboTenThuocKK.SelectedValue.ToString();
             load_dgvLoThuoc_KiemKe(maThuoc);
-
         }
 
         private void UpdateSoLuongTon_Chenhlech()
         {
-            int tongSoluongTonThucTe = 0;
-            foreach (DataGridViewRow row in dgvLoThuocKK.Rows)
+            try
             {
-                tongSoluongTonThucTe += Convert.ToInt32(row.Cells["SoLuongTon"].Value);
+                int tongSoluongTonThucTe = 0;
+                foreach (DataGridViewRow row in dgvLoThuocKK.Rows)
+                {
+                    tongSoluongTonThucTe += Convert.ToInt32(row.Cells["SoLuongTon"].Value);
+                }
+
+                int soLuong = Convert.ToInt32(txtSoLuongTonKK.Text);
+                int chenhLech = tongSoluongTonThucTe - soLuong;
+
+                txtChenhLech.Text = chenhLech.ToString();
+
             }
-
-            int soLuong = Convert.ToInt32(txtSoLuongTonKK.Text);
-            int chenhLech = tongSoluongTonThucTe - soLuong;
-
-            txtChenhLech.Text = chenhLech.ToString();
-
+            catch { }
             dgvLoThuocKK.Refresh();
+
+
+
         }
 
+        ds_ChenhLech dsChenhLech = new ds_ChenhLech();
         private void btnSuaKK_Click(object sender, EventArgs e)
         {
             UpdateSoLuongTon_Chenhlech();
-            
+            update_LoThuoc();
+
+
         }
 
         bool check_UpdateSLTon_kk = false;
@@ -146,12 +156,48 @@ namespace Nhom13
             {
                 MessageBox.Show("Cập nhật số lượng tồn thất bại");
             }
+        }
 
+        private void update_LoThuoc()
+        {
+            int index = dgvLoThuocKK.CurrentCell.RowIndex;
+
+            string maLo = dgvLoThuocKK.Rows[index].Cells["MaLo"].Value.ToString();
+            int soLuong = Convert.ToInt32(dgvLoThuocKK.Rows[index].Cells["SoLuongTon"].Value);
+
+            string query = "update LoThuoc set SoLuongTon = " + soLuong + " where MaLo = '" + maLo + "'";
+            int kq = db.getNonQuery(query);
+
+            if(kq > 0)
+            {
+                MessageBox.Show("Cập nhật số lượng thành công.", "Thông báo");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật số lượng thất bại.", "Thông báo");
+            }
+
+
+        }
+
+        private void update_dsChenhLech()
+        {
+
+            string maThuoc = txtMaThuocKK.Text;
+            foreach (DataRow dr in dsChenhLech.Tables["ChenhLechKiemKe"].Rows)
+            {
+                if (maThuoc == dr["MaThuoc"].ToString())
+                {
+                    dr["ChenhLech"] = txtChenhLech.Text;
+                }
+            }
 
         }
 
         private void btnLuuKK_Click(object sender, EventArgs e)
         {
+            UpdateSoLuongTon_Chenhlech();
+
             try
             {
                 int value = Convert.ToInt32(txtChenhLech.Text);
@@ -160,17 +206,17 @@ namespace Nhom13
                         MessageBox.Show("Số lượng thuốc có sự chênh lệch.", "Nhắc nhở");
                         return;
                 }
+               
+                MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK);
 
-                UpdateSoLuongTon_Chenhlech();
-                DataTable dt = (DataTable)dgvLoThuocKK.DataSource;
-                string sql = "select * from LoThuoc";
-                db.updateDatabase(sql, dt);
-                MessageBox.Show("Lưu thành công");
+                update_dsChenhLech();
+
                 update_Thuoc();
                 if(check_UpdateSLTon_kk == true)
                 {
                     check_UpdateSLTon_kk=false;
                 }
+
 
             }
                 catch
@@ -181,8 +227,101 @@ namespace Nhom13
             }
         private void btnPhieuKiemKe_Click(object sender, EventArgs e)
         {
+            
+
             txtSoLuongTonKK.Enabled = true;
 
+            rpt_KiemKe rpt = new rpt_KiemKe();
+            rpt.SetDataSource(dsChenhLech.Tables["ChenhLechKiemKe"]);
+
+            frm_Report_KiemKe reportForm = new frm_Report_KiemKe();
+            reportForm.crystalReportViewer1.ReportSource = rpt;
+            reportForm.ShowDialog();
+
+            
+
+        }
+
+       
+
+        private void btnLuuChenhLech_Click(object sender, EventArgs e)
+        {
+
+            if (txtChenhLech.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập số lượng thực tế.", "Nhắc nhở");
+                return;
+            }
+
+
+            DataTable dt = dsChenhLech.Tables["ChenhLechKiemKe"];
+
+            foreach (DataRow row1 in dt.Rows)
+            {
+                if (row1["MaThuoc"].ToString() == txtMaThuocKK.Text)
+                {
+                    DialogResult a = MessageBox.Show("Bạn có muốn lưu lại chênh lệch của thuốc này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if(a == DialogResult.Yes)
+                    {
+                        update_dsChenhLech();
+                        MessageBox.Show("Cập nhật thành công", "Thông báo");
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                }
+            }
+
+            int SoLuongThuc = 0;
+            foreach(DataGridViewRow dvr in dgvLoThuocKK.Rows)
+            {
+                SoLuongThuc += Convert.ToInt32(dvr.Cells["SoLuongTon"].Value);
+            }
+
+            DataRow row = dsChenhLech.Tables["ChenhLechKiemKe"].NewRow();
+            row["TenThuoc"] = cboTenThuocKK.Text.Trim();
+            row["MaThuoc"] = txtMaThuocKK.Text.Trim();
+            row["ChenhLech"] = Convert.ToInt32(txtChenhLech.Text.Trim());
+            row["SoLuong"] = SoLuongThuc;
+            row["SoLuongTon"] = txtSoLuongTonKK.Text.Trim();
+            dsChenhLech.Tables["ChenhLechKiemKe"].Rows.Add(row);
+
+            int chenhlech = Convert.ToInt32(txtChenhLech.Text);
+
+            if(chenhlech > 0)
+            {
+                MessageBox.Show(cboTenThuocKK.Text + " dư " + txtChenhLech.Text);
+
+            }
+            else if (chenhlech < 0)
+            {
+                MessageBox.Show(cboTenThuocKK.Text + " thiếu  " + txtChenhLech.Text);
+            }
+            else
+            {
+                MessageBox.Show(cboTenThuocKK.Text + " chênh lệch " + txtChenhLech.Text, "Thông báo");
+
+            }
+
+
+
+        }
+
+        private void txtMaThuocKK_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = dsChenhLech.Tables["ChenhLechKiemKe"];
+            foreach (DataRow row in dt.Rows)
+            {
+                if (txtMaThuocKK.Text == row["MaThuoc"].ToString())
+                {
+                    txtChenhLech.Text = row["ChenhLech"].ToString();
+                }
+            }
         }
     }
-    }
+}
+    

@@ -35,6 +35,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.cboTenThuocKK = new System.Windows.Forms.ComboBox();
+            this.btnPhieuKiemKe = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtXuatXuKK = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -43,8 +44,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaThuocKK = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnLuuChenhLech = new System.Windows.Forms.Button();
             this.btnSuaKK = new System.Windows.Forms.Button();
-            this.btnPhieuKiemKe = new System.Windows.Forms.Button();
             this.txtMaLoKK = new System.Windows.Forms.TextBox();
             this.txtChenhLech = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -124,6 +125,7 @@
             // 
             this.tabPage5.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage5.Controls.Add(this.cboTenThuocKK);
+            this.tabPage5.Controls.Add(this.btnPhieuKiemKe);
             this.tabPage5.Controls.Add(this.label10);
             this.tabPage5.Controls.Add(this.txtXuatXuKK);
             this.tabPage5.Controls.Add(this.label9);
@@ -149,24 +151,34 @@
             // cboTenThuocKK
             // 
             this.cboTenThuocKK.FormattingEnabled = true;
-            this.cboTenThuocKK.Location = new System.Drawing.Point(349, 108);
+            this.cboTenThuocKK.Location = new System.Drawing.Point(349, 96);
             this.cboTenThuocKK.Name = "cboTenThuocKK";
             this.cboTenThuocKK.Size = new System.Drawing.Size(176, 24);
             this.cboTenThuocKK.TabIndex = 16;
             this.cboTenThuocKK.SelectedIndexChanged += new System.EventHandler(this.cboTenThuocKK_SelectedIndexChanged);
             // 
+            // btnPhieuKiemKe
+            // 
+            this.btnPhieuKiemKe.Location = new System.Drawing.Point(951, 126);
+            this.btnPhieuKiemKe.Name = "btnPhieuKiemKe";
+            this.btnPhieuKiemKe.Size = new System.Drawing.Size(139, 26);
+            this.btnPhieuKiemKe.TabIndex = 22;
+            this.btnPhieuKiemKe.Text = "Tạo phiếu kiểm kê";
+            this.btnPhieuKiemKe.UseVisualStyleBackColor = true;
+            this.btnPhieuKiemKe.Click += new System.EventHandler(this.btnPhieuKiemKe_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(581, 112);
+            this.label10.Location = new System.Drawing.Point(581, 100);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 16);
+            this.label10.Size = new System.Drawing.Size(59, 17);
             this.label10.TabIndex = 21;
             this.label10.Text = "Xuất xứ:";
             // 
             // txtXuatXuKK
             // 
-            this.txtXuatXuKK.Location = new System.Drawing.Point(644, 109);
+            this.txtXuatXuKK.Location = new System.Drawing.Point(644, 97);
             this.txtXuatXuKK.Name = "txtXuatXuKK";
             this.txtXuatXuKK.Size = new System.Drawing.Size(175, 22);
             this.txtXuatXuKK.TabIndex = 20;
@@ -176,7 +188,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(544, 65);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 16);
+            this.label9.Size = new System.Drawing.Size(96, 17);
             this.label9.TabIndex = 19;
             this.label9.Text = "Mã loại thuốc:";
             // 
@@ -189,7 +201,7 @@
             // 
             // btnLuuKK
             // 
-            this.btnLuuKK.Location = new System.Drawing.Point(1021, 109);
+            this.btnLuuKK.Location = new System.Drawing.Point(1021, 97);
             this.btnLuuKK.Name = "btnLuuKK";
             this.btnLuuKK.Size = new System.Drawing.Size(75, 23);
             this.btnLuuKK.TabIndex = 17;
@@ -202,7 +214,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(270, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.Size = new System.Drawing.Size(70, 17);
             this.label3.TabIndex = 16;
             this.label3.Text = "Mã thuốc:";
             // 
@@ -213,11 +225,12 @@
             this.txtMaThuocKK.Name = "txtMaThuocKK";
             this.txtMaThuocKK.Size = new System.Drawing.Size(175, 22);
             this.txtMaThuocKK.TabIndex = 15;
+            this.txtMaThuocKK.TextChanged += new System.EventHandler(this.txtMaThuocKK_TextChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnLuuChenhLech);
             this.groupBox2.Controls.Add(this.btnSuaKK);
-            this.groupBox2.Controls.Add(this.btnPhieuKiemKe);
             this.groupBox2.Controls.Add(this.txtMaLoKK);
             this.groupBox2.Controls.Add(this.txtChenhLech);
             this.groupBox2.Controls.Add(this.label8);
@@ -232,9 +245,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lô thuốc";
             // 
+            // btnLuuChenhLech
+            // 
+            this.btnLuuChenhLech.Location = new System.Drawing.Point(681, 23);
+            this.btnLuuChenhLech.Name = "btnLuuChenhLech";
+            this.btnLuuChenhLech.Size = new System.Drawing.Size(139, 23);
+            this.btnLuuChenhLech.TabIndex = 23;
+            this.btnLuuChenhLech.Text = "Lưu chênh lệch";
+            this.btnLuuChenhLech.UseVisualStyleBackColor = true;
+            this.btnLuuChenhLech.Click += new System.EventHandler(this.btnLuuChenhLech_Click);
+            // 
             // btnSuaKK
             // 
-            this.btnSuaKK.Location = new System.Drawing.Point(409, 24);
+            this.btnSuaKK.Location = new System.Drawing.Point(400, 22);
             this.btnSuaKK.Name = "btnSuaKK";
             this.btnSuaKK.Size = new System.Drawing.Size(75, 23);
             this.btnSuaKK.TabIndex = 23;
@@ -242,36 +265,26 @@
             this.btnSuaKK.UseVisualStyleBackColor = true;
             this.btnSuaKK.Click += new System.EventHandler(this.btnSuaKK_Click);
             // 
-            // btnPhieuKiemKe
-            // 
-            this.btnPhieuKiemKe.Location = new System.Drawing.Point(693, 23);
-            this.btnPhieuKiemKe.Name = "btnPhieuKiemKe";
-            this.btnPhieuKiemKe.Size = new System.Drawing.Size(127, 23);
-            this.btnPhieuKiemKe.TabIndex = 22;
-            this.btnPhieuKiemKe.Text = "Tạo phiếu kiểm kê";
-            this.btnPhieuKiemKe.UseVisualStyleBackColor = true;
-            this.btnPhieuKiemKe.Click += new System.EventHandler(this.btnPhieuKiemKe_Click);
-            // 
             // txtMaLoKK
             // 
-            this.txtMaLoKK.Location = new System.Drawing.Point(69, 24);
+            this.txtMaLoKK.Location = new System.Drawing.Point(69, 22);
             this.txtMaLoKK.Name = "txtMaLoKK";
             this.txtMaLoKK.Size = new System.Drawing.Size(103, 22);
             this.txtMaLoKK.TabIndex = 22;
             // 
             // txtChenhLech
             // 
-            this.txtChenhLech.Location = new System.Drawing.Point(582, 24);
+            this.txtChenhLech.Location = new System.Drawing.Point(562, 23);
             this.txtChenhLech.Name = "txtChenhLech";
-            this.txtChenhLech.Size = new System.Drawing.Size(100, 22);
+            this.txtChenhLech.Size = new System.Drawing.Size(110, 22);
             this.txtChenhLech.TabIndex = 14;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(498, 27);
+            this.label8.Location = new System.Drawing.Point(478, 26);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 16);
+            this.label8.Size = new System.Drawing.Size(83, 17);
             this.label8.TabIndex = 15;
             this.label8.Text = "Chênh lệch:";
             // 
@@ -287,26 +300,26 @@
             // 
             // txtSoLuongThucKK
             // 
-            this.txtSoLuongThucKK.Location = new System.Drawing.Point(298, 24);
+            this.txtSoLuongThucKK.Location = new System.Drawing.Point(298, 22);
             this.txtSoLuongThucKK.Name = "txtSoLuongThucKK";
-            this.txtSoLuongThucKK.Size = new System.Drawing.Size(100, 22);
+            this.txtSoLuongThucKK.Size = new System.Drawing.Size(96, 22);
             this.txtSoLuongThucKK.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(183, 27);
+            this.label7.Location = new System.Drawing.Point(183, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 16);
+            this.label7.Size = new System.Drawing.Size(115, 17);
             this.label7.TabIndex = 12;
             this.label7.Text = "Số lượng thực tế:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 27);
+            this.label4.Location = new System.Drawing.Point(16, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 16);
+            this.label4.Size = new System.Drawing.Size(50, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Mã lô: ";
             // 
@@ -335,7 +348,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(832, 65);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 16);
+            this.label6.Size = new System.Drawing.Size(88, 17);
             this.label6.TabIndex = 10;
             this.label6.Text = "Nhóm thuốc:";
             // 
@@ -349,24 +362,24 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(270, 112);
+            this.label5.Location = new System.Drawing.Point(270, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 16);
+            this.label5.Size = new System.Drawing.Size(76, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Tên thuốc:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(829, 112);
+            this.label2.Location = new System.Drawing.Point(829, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.Size = new System.Drawing.Size(92, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Số lượng tồn:";
             // 
             // txtSoLuongTonKK
             // 
-            this.txtSoLuongTonKK.Location = new System.Drawing.Point(921, 109);
+            this.txtSoLuongTonKK.Location = new System.Drawing.Point(921, 97);
             this.txtSoLuongTonKK.Name = "txtSoLuongTonKK";
             this.txtSoLuongTonKK.Size = new System.Drawing.Size(94, 22);
             this.txtSoLuongTonKK.TabIndex = 2;
@@ -436,6 +449,7 @@
         private System.Windows.Forms.Button btnPhieuKiemKe;
         private System.Windows.Forms.TextBox txtMaLoKK;
         private System.Windows.Forms.Button btnSuaKK;
+        private System.Windows.Forms.Button btnLuuChenhLech;
     }
 }
 

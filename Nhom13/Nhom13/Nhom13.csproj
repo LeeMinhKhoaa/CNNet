@@ -54,10 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnect.cs" />
-    <Compile Include="DSKiemKe.Designer.cs">
+    <Compile Include="ds_ChenhLech.cs">
+      <DependentUpon>ds_ChenhLech.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ds_ChenhLech.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DSKiemKe.xsd</DependentUpon>
+      <DependentUpon>ds_ChenhLech.xsd</DependentUpon>
     </Compile>
     <Compile Include="frm_Home.cs">
       <SubType>Form</SubType>
@@ -65,19 +68,25 @@
     <Compile Include="frm_Home.Designer.cs">
       <DependentUpon>frm_Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_ReportKiemKe.cs">
+    <Compile Include="frm_Report_KiemKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_ReportKiemKe.Designer.cs">
-      <DependentUpon>frm_ReportKiemKe.cs</DependentUpon>
+    <Compile Include="frm_Report_KiemKe.Designer.cs">
+      <DependentUpon>frm_Report_KiemKe.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rpt_KiemKe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_KiemKe.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frm_Home.resx">
       <DependentUpon>frm_Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_ReportKiemKe.resx">
-      <DependentUpon>frm_ReportKiemKe.cs</DependentUpon>
+    <EmbeddedResource Include="frm_Report_KiemKe.resx">
+      <DependentUpon>frm_Report_KiemKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,16 +98,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DSKiemKe.xsc">
-      <DependentUpon>DSKiemKe.xsd</DependentUpon>
+    <EmbeddedResource Include="rpt_KiemKe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_KiemKe.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ds_ChenhLech.xsc">
+      <DependentUpon>ds_ChenhLech.xsd</DependentUpon>
     </None>
-    <None Include="DSKiemKe.xsd">
+    <None Include="ds_ChenhLech.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSKiemKe.Designer.cs</LastGenOutput>
+      <LastGenOutput>ds_ChenhLech.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DSKiemKe.xss">
-      <DependentUpon>DSKiemKe.xsd</DependentUpon>
+    <None Include="ds_ChenhLech.xss">
+      <DependentUpon>ds_ChenhLech.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

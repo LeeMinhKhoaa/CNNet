@@ -35,5 +35,5 @@ C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\bin\Debug\CrystalDe
 C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\bin\Debug\stdole.dll
-C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.frm_ReportKiemKe.resources
 C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.csproj.CopyComplete
+C:\Users\quang\OneDrive\Desktop\Đồ án .Net\Nhom13\Nhom13\obj\Debug\Nhom13.frm_Report_KiemKe.resources

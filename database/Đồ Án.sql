@@ -12,7 +12,6 @@ CREATE TABLE HOADON (
 
 );
 
-1
 -- Tạo bảng KhachHang
 CREATE TABLE KHACHHANG (
     MaKH varchar(10) PRIMARY KEY,
